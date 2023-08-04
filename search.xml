@@ -45,9 +45,53 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>文件分享</title>
+      <link href="/document/index.html"/>
+      <url>/document/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>画集</title>
+      <link href="/painting/index.html"/>
+      <url>/painting/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>旅行记忆</title>
+      <link href="/travel/index.html"/>
+      <url>/travel/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>travel</title>
+      <link href="/travel/index-1.html"/>
+      <url>/travel/index-1.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
