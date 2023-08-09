@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>游戏测试</title>
+      <link href="/2023/08/09/hh/"/>
+      <url>/2023/08/09/hh/</url>
+      
+        <content type="html"><![CDATA[<p>saefhoahgopajodpgjopajopegjopajsgeoihopa</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>画集</title>
       <link href="/2023/08/05/%E9%AC%BC%E5%88%80%E5%A3%81%E7%BA%B8/"/>
       <url>/2023/08/05/%E9%AC%BC%E5%88%80%E5%A3%81%E7%BA%B8/</url>
@@ -52,33 +65,19 @@
     </entry>
     
     
+  
+  
+    
     
     <entry>
-      <title>数据库相关理论</title>
-      <link href="/2023/08/03/1/"/>
-      <url>/2023/08/03/1/</url>
+      <title>game</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="数据库相关理论"><a href="#数据库相关理论" class="headerlink" title="数据库相关理论"></a>数据库相关理论</h1><h3 id="transaction："><a href="#transaction：" class="headerlink" title="transaction："></a>transaction：</h3><p>Transaction事务：一个最小的不可再分的工作单元；通常一个事务对应一个完整的业务(例如银行账户转账业务，该业务就是一个最小的工作单元)一个完整的业务需要批量的DML(insert、update、delete)语句共同联合完成。事务只和DML语句有关，或者说DML语句才有事务。这个和业务逻辑有关，业务逻辑不同，DML语句的个数不同。</p><h3 id="ACID："><a href="#ACID：" class="headerlink" title="ACID："></a>ACID：</h3><p><em>原子性</em>（atomicity)：一个事务要么全部提交成功，要么全部失败回滚，不能只执行其中的一部分操作，这就是事务的原子性</p><p><em>一致性</em>（consistency) ：事务的执行不能破坏数据库数据的完整性和一致性，一个事务在执行之前和执行之后，数据库都必须处于一致性状态。</p><p><em>隔离性</em>（isolation）： 事务的隔离性是指在并发环境中，并发的事务时相互隔离的，一个事务的 执行不能不被其他事务干扰。4个事务隔离级别是：读未提交、读已提交、可重复读、串行化</p><p><em>持久性</em>(Durability）： 事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p><h3 id="MVCC："><a href="#MVCC：" class="headerlink" title="MVCC："></a>MVCC：</h3><p>多版本并发控制。当前读（加排他锁的）快照读（不加锁的）</p><h3 id="REDO："><a href="#REDO：" class="headerlink" title="REDO："></a>REDO：</h3><p>REDO用于在失败时重放事务（即恢复事务）。当执行DML操作时，旧数据会写入UNDO中，redo用于记录这些旧数据以便在需要时进行重放。Redo日志是用于恢复数据库的事务，以便在发生故障或系统崩溃后恢复事务。</p><h3 id="UNDO："><a href="#UNDO：" class="headerlink" title="UNDO："></a>UNDO：</h3><p>UNDO是用于取消或回滚事务的数据修改。在数据库中进行数据修改时，UNDO会记录这些修改前的数据，以便在发生故障或系统崩溃时将数据恢复到修改前的状态。当执行DML操作时，旧数据会写入UNDO中。当事务回滚时，未提交的事务可以通过将UNDO中的旧数据重新写回数据段中来实现回滚操作，已提交的事务可以进行闪回操作，这大多是基于UNDO数据实现的。</p><h3 id="数据库高可用："><a href="#数据库高可用：" class="headerlink" title="数据库高可用："></a>数据库高可用：</h3><p>指通过设计减少系统不能提供服务的时间。如果系统能够不间断地提供服务，那么其可用性为100%。如果系统每运行100个时间单位，就会出现1个时间单位无法提供服务，那么该系统的可用性是99%。很多公司的高可用性目标是4个9，也就是99.99%，这意味着系统的年停机时间为8.76个小时。为了实现系统高可用性，架构设计的核心准则是冗余，系统需要全天候24小时不间断运行，则需要相应的冗余机制，以防某台机器宕掉时无法访问，而冗余则可以通过部署至少两台服务器构成一个集群实现服务高可用性。数据库除了定期备份还需要实现冷热备份，甚至可以在全球范围内部署灾备数据中心。</p><h3 id="CAP原则："><a href="#CAP原则：" class="headerlink" title="CAP原则："></a>CAP原则：</h3><p>CAP原则是指在一个分布式系统中，一致性（Consistency）、可用性（Availability）和分区容错性（Partition tolerance）三个要素最多只能同时实现两点，不可能三者兼顾。</p><p>具体来说，一致性是指所有节点在同一时刻是否同样的值，即所有节点访问同一份最新的数据副本；可用性是指在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求，对数据更新具备高可用性；分区容忍性是指系统不能在时限内达成数据一致性，必须就当前操作在C和A之间做出选择。</p><p>因此，在进行分布式架构设计时，必须做出取舍，要么选择AP（最终一致性），要么选择CP（强一致性），要么选择AC（可用性和一致性）。</p><h3 id="Raft："><a href="#Raft：" class="headerlink" title="Raft："></a>Raft：</h3><p>在Raft体系中，有一个强leader，由它全权负责接收客户端的请求命令，并将命令作为日志条目复制给其他服务器，在确认安全的时候，将日志命令提交执行。当leader故障时，会选举产生一个新的leader。在强leader的帮助下，Raft将一致性分解为三个子问题：</p><p>leader选举：当已有的leader故障时必须选出一个新的leader；<br>日志复制：leader接受来自客户端的命令，记录为日志，并复制给集群中的其他服务器，并强制其他节点的日志与leader保持一致；<br>安全safety措施：通过一些措施系统的安全性，如确保所有状态机按照相同顺序执行相同命令的措施。</p><p>一个Raft集群拥有多个服务器，典型值是5，这样可以容忍两台服务器出现故障。服务器可能会处于如下三种角色：leader、candidate、follower，正常运行的情况下，会有一个leader，其他全为follower，follower只会响应leader和candidate的请求，而客户端的请求则全部由leader处理，即使客户端请求了一个follower也会将请求重定向到leader。candidate代表候选人，出现在选举leader阶段，选举成功后candidate将会成为新的leader。</p><h3 id="Paxos："><a href="#Paxos：" class="headerlink" title="Paxos："></a>Paxos：</h3><p>Paxos算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。在工程实践意义上来说，就是可以通过Paxos实现多副本一致性，分布式锁，名字管理，序列号分配等。比如，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致</p><h3 id="OLTP："><a href="#OLTP：" class="headerlink" title="OLTP："></a>OLTP：</h3><p>OLTP（on-line transaction processing，联机事务处理）的特征为，对大量的数据，有大量的应用程序访问，同时做大量的写(insert&#x2F;update&#x2F;delete)操作。</p><h3 id="OLAP："><a href="#OLAP：" class="headerlink" title="OLAP："></a>OLAP：</h3><p>OLAP（On-Line Analytical Processing，联机分析处理）的特征为，对大量的数据，有少量的应用程序访问，可能伴随有少量的写操作，主要会发生一定量的复杂度较高的读（select）操作。</p><h3 id="HTAP："><a href="#HTAP：" class="headerlink" title="HTAP："></a>HTAP：</h3><p>HTAP（Hybrid Transaction and Analytical Process,混合事务和分析处理）：打破OLTP和OLAP之间的隔阂，既可以应用于事务型数据库场景，亦可以应用于分析型数据库场景。实现实时业务决策。HTAP数据多为双引擎数据库（1个行存、1个列存），因此大部分为开源产品包装而成。</p><h3 id="RDBMS："><a href="#RDBMS：" class="headerlink" title="RDBMS："></a>RDBMS：</h3><p>关系数据库管理系统（Relational Database Management System，RDBMS）是一种管理关系数据库的软件。</p><p>RDBMS的主要<strong>特点</strong>：<br>数据完整性：RDBMS执行数据完整性规则，如实体完整性（主键唯一性）和引用完整性（表之间的关系）。<br>ACID属性：RDBMS通过ACID属性（原子性、一致性、隔离性、持久性）确保事务完整性，从而实现可靠和健壮的数据操作。<br>SQL支持：RDBMS使用SQL作为与数据库交互的标准语言，使查询、操作和检索数据变得容易。<br>数据关系：RDBMS有助于使用主键和外键在表之间建立关系，从而通过联接实现高效的数据检索。<br>索引：RDBMS支持索引机制，通过允许更快的数据访问来提高查询性能。<br>可扩展性：RDBMS可以垂直扩展（向单个服务器添加更多资源）或水平扩展（在多个服务器之间分布数据），以处理不断增长的数据量和用户负载。</p><h3 id="NoSQL："><a href="#NoSQL：" class="headerlink" title="NoSQL："></a>NoSQL：</h3><p>以放宽ACID原则为代价，NoSQL采取的是最终一致性原则，而不是像关系型数据库那样地严格遵守着ACID的原则，这意味着如果在特定时间段内没有特 定数据项的更新，则最终对其所有的访问都将返回最后更新的值。 这就是 这样的系统通常被描述为提供基本保证的原因（基本可用，软状态，最终一致性）而不是ACID。</p><h3 id="NewSQL"><a href="#NewSQL" class="headerlink" title="NewSQL:"></a>NewSQL:</h3><p>也是关系型数据库，吸收了传统关系型数据库和NoSql数据库的优点。可实 现强一致性(传统关系型DB优点)，具有强的水平可扩展性(NoSql DB优点)</p><h3 id="Middleware："><a href="#Middleware：" class="headerlink" title="Middleware："></a>Middleware：</h3><p>数据库中间件是位于数据库管理系统（DBMS）和应用程序之间的软件层，它提供数据访问、数据传输、数据缓存等功能，以便应用程序能够与数据库进行交互和操作。</p><h3 id="RPO："><a href="#RPO：" class="headerlink" title="RPO："></a>RPO：</h3><p>Recovery Point Objective，是指从系统和应用数据而言，要实现能够恢复至可以支持 各部门业务运作，系统及生产数据应恢复到怎样的更新程度</p><h3 id="RTO："><a href="#RTO：" class="headerlink" title="RTO："></a>RTO：</h3><p> Recovery Time Objective，它是指灾难发生后，从 IT 系统当机导致业务停顿之时开始</p><p> 到 IT 系统恢复至可以支持各部门运作、恢复运营之时，此两点之间的时间段称RTO</p><h3 id="QPS："><a href="#QPS：" class="headerlink" title="QPS："></a>QPS：</h3><p>每秒执行查询数</p><h3 id="TPS："><a href="#TPS：" class="headerlink" title="TPS："></a>TPS：</h3><p>  每秒执行事务数</p><h3 id="Shared-Everthting"><a href="#Shared-Everthting" class="headerlink" title="Shared Everthting:"></a>Shared Everthting:</h3><p> 一般是针对单个主机，完全透明共享CPU&#x2F;MEMORY&#x2F;IO，并行处理能力是最 差的，典型的代表SQLServer</p><h3 id="Shared-Disk："><a href="#Shared-Disk：" class="headerlink" title="Shared Disk："></a>Shared Disk：</h3><p> 各个处理单元使用自己的私有 CPU和Memory，共享磁盘系统。典型的代表  Oracle Rac， 它是数据共享，可通过增加节点来提高并行处理的能力，扩展 能力较好。</p><h3 id="Shared-Nothing："><a href="#Shared-Nothing：" class="headerlink" title="Shared Nothing："></a>Shared Nothing：</h3><p> 各个处理单元都有自己私有的CPU&#x2F;内存&#x2F;硬盘等，不存在共享资源</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> travel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据库学习 </tag>
-            
-        </tags>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
-    
-  
-  
     
     
     <entry>
@@ -107,6 +106,17 @@
       <title>爬爬的标签页</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>游戏页</title>
+      <link href="/games/index.html"/>
+      <url>/games/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
